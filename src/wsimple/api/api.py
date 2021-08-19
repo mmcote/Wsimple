@@ -372,6 +372,25 @@ class Wsimple:
             logger=self.logger,
         )
 
+    @_manage_tokens
+    def get_quotes(
+        self,
+        sec_id: str,
+        tokens=None,
+        account_id: Optional[str] = None,
+    ):
+        """
+        Grabs a real-time spot quote for a specific security id
+        """
+        param = {"account_id": account_id, "security_id": sec_id}
+        return requestor(
+            Endpoints.GET_QUOTES,
+            args={"base": self.BASE_URL, "sec_id": sec_id},
+            headers=tokens[0],
+            params=param,
+            logger=self.logger,
+        )
+
     #! order functions
     @_manage_tokens
     def get_orders(self, tokens=None):

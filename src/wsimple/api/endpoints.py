@@ -24,6 +24,7 @@ class Endpoints(Enum):
     GET_PERSON = Route("{base}person", "GET")
     GET_BANK_ACCOUNTS = Route("{base}bank-accounts", "GET")
     GET_POSITONS = Route("{base}account/positions", "GET")
+    GET_QUOTES = Route("{base}quotes/{sec_id}", "GET")
 
     GET_ORDERS = Route("{base}orders", "GET")
     SEND_ORDER = Route("{base}orders", "POST")
